@@ -1,0 +1,38 @@
+$c-brand: blue;
+.testing {
+    width: percentage(5/7);
+    display: flex;
+    transition: all .5s;
+    user-select: none;
+    background: linear-gradient(to bottom, white, black);
+}
+
+body {
+    background-color: $c-brand;
+    padding: 15px;
+    border-radius: 60px;
+    h1 {
+        color: #dddddd;
+        text-align: center;
+        font-size: 80px;
+    }
+    h2 {
+        color: darkblue;
+        text-align: center;
+        margin-top: 600px;
+        font-size: 400px;
+        font-style: italic;
+    }
+}
+
+p {
+    color: red;
+    text-align: justify;
+    display: flex;
+    align-items: flex-start;
+    transition: all 0.8s ease-in-out;
+    &:hover {
+        color: lighten(red, 80%);
+        transform: translate3d(0, 30px, 30px) scale(1.5) rotate(30deg);
+    }
+}

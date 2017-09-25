@@ -1,0 +1,39 @@
+.testing {
+  width: 71.42857%; }
+
+body {
+  background-color: aliceblue;
+  padding: 15px;
+  border: 15px solid #fff;
+  -webkit-border-radius: 60px;
+          border-radius: 60px; }
+  body h1 {
+    color: lime;
+    text-align: center;
+    font-size: 80px; }
+  body h2 {
+    color: magenta;
+    text-align: center;
+    margin-top: 600px;
+    font-size: 400px; }
+
+p {
+  color: red;
+  text-align: justify;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: start;
+  -webkit-align-items: flex-start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-transition: all 0.8s ease-in-out;
+  -o-transition: all 0.8s ease-in-out;
+  transition: all 0.8s ease-in-out; }
+  p:hover {
+    color: white;
+    -webkit-transform: translate3d(0, 30px, 30px) scale(1.5) rotate3d(30deg, 30deg, 30deg);
+            transform: translate3d(0, 30px, 30px) scale(1.5) rotate3d(30deg, 30deg, 30deg); }
+
+/*# sourceMappingURL=styles.css.map */
