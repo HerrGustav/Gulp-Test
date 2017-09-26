@@ -86,6 +86,7 @@ gulp.task('watch', function () {
     gulp.watch('app/*.html', browserSync.reload);
     gulp.watch('app/scss/**/*.scss', ['sass']);
     gulp.watch('app/js/**/*.js', ['jshint']);
+    gulp.watch('app/js/**/*.js', browserSync.reload);
     gulp.watch('app/images/**/*', browserSync.reload);
 })
 // build:
