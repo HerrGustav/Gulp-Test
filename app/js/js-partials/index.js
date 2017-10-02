@@ -8,3 +8,6 @@ $('h2').html('Hello').on('click', function () {
 d3.selectAll("p").style("color", function (d, i) {
     return i % 2 ? "#fff" : "#eee";
 });
+
+// d3 Tutorials:
+var barChart = require('./bar-chart.js');

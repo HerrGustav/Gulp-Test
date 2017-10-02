@@ -8,6 +8,33 @@ $c-brand-sub: #fcc;
     background: linear-gradient(to bottom, white, black);
 }
 
+
+.chart {
+    div{
+        background-color: steelblue;
+        //border: 1px solid #fff;
+        margin: 2px;
+        padding: 5px;
+        
+        color: #fff;
+        text-align: right;
+        
+        &:hover{
+            background-color: brown;
+        }
+    }
+    
+    rect{
+        fill: steelblue;
+    }
+    
+    text{
+        fill: white;
+        font: 10px sans-serif;
+        text-anchor: end;
+    }
+}
+ 
 body {
     background-color: $c-brand;
     padding: 15px;
