@@ -1,6 +1,7 @@
 var $ = require('jquery');
 var d3 = require('d3');
 
+
 $('h2').html('Hello').on('click', function () {
     alert('What up!');
 });

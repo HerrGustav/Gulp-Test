@@ -26,6 +26,10 @@ $c-brand-sub: #fcc;
     
     rect{
         fill: steelblue;
+        
+        &:hover{
+            fill:brown;
+        }
     }
     
     text{
@@ -34,6 +38,8 @@ $c-brand-sub: #fcc;
         text-anchor: end;
     }
 }
+
+
  
 body {
     background-color: $c-brand;
@@ -50,6 +56,13 @@ body {
         margin-top: 600px;
         font-size: 400px;
         font-style: italic;
+    }
+}
+
+
+.text-on-click{
+    &:hover{
+        color: lighten(darkblue, 20%);
     }
 }
 

@@ -2,33 +2,48 @@
 // d3 Bar chart tutorial: https://bost.ocks.org/mike/bar/
 
 var d3 = require('d3');
+var $ = require('jquery'); 
 
+var dataset;
 
-var width = 420; var barHeight = 20;
+var height = 1000; 
+var width = $(window).innerWidth() * .5;
+
+console.log(width);
 
 // scale Factor:
-var x = d3.scale.linear()
-    //.domain([d3.min(data), d3.max(data)])
-    .range([0, width]);
 
-var chart = d3.select('.chart')
-.attr('width', width);
 
-console.log(chart);
+var chart = d3.select('.chart').attr('width', width).attr('height', height);
 
-d3.csv('data.csv', type, function(error, data){
-    x.domain([0, d3.max(data,function(d){ return d.value; })]);
+
+d3.csv('http://localhost:3000/data.csv', type, function(error, data){
     
-    chart.attr('height', barHeight * data.length);
+    dataset = data;
+    
+    var y = d3.scaleLinear().domain([0, d3.max(data,function(d){ console.log(d.value); return d.value; })]).range([height, 0]);
+    
+    
+    var barWidth = width / data.length;
+    
+   
     
     var bar = chart.selectAll('g')
         .data(data)
         .enter().append('g')
-        .attr('transform', function(d, i){ return "translate(0," + i * barHeight + ")"; });
+        .attr("transform", function(d, i) { return "translate(" + i * barWidth + ",0)"; });
     
-    bar.append('rect').attr('width', function(d){ return x(d.value); }).attr('height', barHeight - 1);
     
-    bar.append('text').attr('x', function(d){ return x(d.value) - 3;}).attr('y', barHeight / 2).attr('dy', '.35em').text(function(d){return d.value;});
+   bar.append("rect")
+      .attr("y", function(d) { return y(d.value); })
+      .attr("height", function(d) { console.log(height - y(d.value));return height - y(d.value); })
+      .attr("width", barWidth - 1);
+
+  bar.append("text")
+      .attr("x", barWidth / 2)
+      .attr("y", function(d) { return y(d.value) + 3; })
+      .attr("dy", ".75em")
+      .text(function(d) { return d.value; });
 });
 
 function type(d){
@@ -39,12 +54,10 @@ function type(d){
 
 
 
-var div = document.createElement("div");
-div.innerHTML = "Hello, world!";
-document.body.appendChild(div);
-},{"d3":39}],2:[function(require,module,exports){
+},{"d3":39,"jquery":45}],2:[function(require,module,exports){
 var $ = require('jquery');
 var d3 = require('d3');
+
 
 $('h2').html('Hello').on('click', function () {
     alert('What up!');
