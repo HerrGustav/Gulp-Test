@@ -8,10 +8,6 @@ var dataset;
 var height = 1000; 
 var width = $(window).innerWidth() * .5;
 
-console.log(width);
-
-// scale Factor:
-
 
 var chart = d3.select('.chart').attr('width', width).attr('height', height);
 
@@ -20,7 +16,7 @@ d3.csv('http://localhost:3000/data.csv', type, function(error, data){
     
     dataset = data;
     
-    var y = d3.scaleLinear().domain([0, d3.max(data,function(d){ console.log(d.value); return d.value; })]).range([height, 0]);
+    var y = d3.scaleLinear().domain([0, d3.max(data,function(d){ return d.value; })]).range([height, 0]);
     
     
     var barWidth = width / data.length;
@@ -35,7 +31,7 @@ d3.csv('http://localhost:3000/data.csv', type, function(error, data){
     
    bar.append("rect")
       .attr("y", function(d) { return y(d.value); })
-      .attr("height", function(d) { console.log(height - y(d.value));return height - y(d.value); })
+      .attr("height", function(d) { return height - y(d.value); })
       .attr("width", barWidth - 1);
 
   bar.append("text")
